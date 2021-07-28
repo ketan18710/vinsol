@@ -63,20 +63,17 @@ function Question(props) {
   }
   
   return (
-    <div className="Question">
-      {
-        data.equation  &&
-        <div className="question">
-          <div className="timer">
-            <h2>{counter}</h2>
-          </div>
-          <h2>{data.equation}</h2>
-          <TextField type="text" error={error} helperText={error ? "Please provide an answer" : null }value={answer} onChange={(e)=>setAnswer(e.target.value)} />
-          <Button variant="contained" onClick={()=>evaluate()} color="primary">
-            {quesNumber !== 10 ? 'Next' : 'Submit'}
-          </Button>
-        </div>
-      }
+      
+    data.equation  &&
+    <div className="question">
+      <div className="timer">
+        <h2>{counter}</h2>
+      </div>
+      <h2>{data.equation}</h2>
+      <TextField type="text" error={error} helperText={error ? "Please provide an answer" : null }value={answer} onChange={(e)=>setAnswer(e.target.value)} />
+      <Button variant="contained" onClick={()=>evaluate()} color="primary">
+        {quesNumber !== 10 ? 'Next' : 'Submit'}
+      </Button>
     </div>
   )
 }
