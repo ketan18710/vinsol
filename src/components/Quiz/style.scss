@@ -44,6 +44,9 @@
   }
   .result{
     width: 100%;
+    .MuiTimeline-root{
+      margin-top: auto;
+    }
     .MuiTimelineConnector-root{
       height: 10rem;
     }

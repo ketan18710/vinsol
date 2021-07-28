@@ -11,7 +11,7 @@ function Question(props) {
   })
   const counterInit = 20
   const [answer, setAnswer] = useState('')
-  const [counter, setCounter] = useState(counterInit)
+  const [counter, setCounter] = useState(counterInit);
   const [error, setError] = useState(null)
   const operatorList  = ['+','*','-','/']
   const randomDataPicker = () => {
@@ -28,27 +28,27 @@ function Question(props) {
   }
   
   useEffect(() => {
-    setTimer()
-  }, [])
-  const setTimer = () => {
-    setInterval(() => {
-      if(counter>=1){
-        setCounter(counter-1)
-      }else{
-        alert(1)
-      }
-    }, 1000);
-  }
+    if(counter>=0){
+      let x = setTimeout(() => {
+                setCounter(counter-1)
+                clearTimeout(x)
+              }, 1000);
+    }else{
+      evaluate()
+    }
+  }, [counter])
+
   
   useEffect(() => {
     randomDataPicker()
     setAnswer('')
     setError(null)
+    setCounter(counterInit)
   }, [quesNumber])
 
   const evaluate = () => {
     const ans = `${eval(answer)}`
-    if(answer.trim().length > 0){
+    if(answer.trim().length > 0 || counter <= 0){
       let temp  = data
       if(ans === data.result){
         temp.answer = ans
