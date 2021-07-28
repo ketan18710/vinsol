@@ -1,0 +1,51 @@
+@mixin centerAlign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin spaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Quiz{
+  width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+  @include centerAlign;
+  .question{
+    max-width: 400px;
+    margin: auto;
+    @include centerAlign;
+    flex-direction: column;
+    .timer{
+      width: 50%;
+      margin: auto;
+      border: 2px solid gray;
+      h2{
+        font-size: 4rem;
+      }
+    }
+    h2{
+      font-size: 2rem;
+      margin: 2rem 0;
+    }
+    .MuiInputBase-root{
+      font-size: 1.5rem;
+    }
+    button{
+      margin: 2rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+  .result{
+    width: 100%;
+    .MuiTimelineConnector-root{
+      height: 10rem;
+    }
+    .totalScore{
+      text-align: center;
+    }
+  }
+}
